@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="sylesheet" type="text/css" href="style.css">
+    <title>Aplikasi Matematika</title>
+<style>
+    body{ 
+        background: lightgray;
+    }*{
+            box-sizing:border-box;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+        }
+    .wrap{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: auto;
+        margin: 10px auto;
+    }
+    #balok{
+        width:400px;
+            margin:auto;
+            height:auto;
+            background: linear-gradient(50deg, #ce9a6a,rgb(233, 122, 31));
+            padding:15px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px black;
+    }
+    #segitiga{
+        width:400px;
+            margin:auto;
+            height:auto;
+            background: linear-gradient(50deg, #f78a8a,rgb(252, 28, 28));
+            padding:15px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px black;
+    }
+    #ppanjang{
+        width:400px;
+            margin:auto;
+            height:auto;
+            background: linear-gradient(50deg, #37df0d,rgb(24, 21, 20));
+            padding:15px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px black;
+    }
+    #prisma{
+        width:400px;
+            margin:auto;
+            height:auto;
+            background: linear-gradient(50deg, #463083,rgb(37, 37, 37));
+            padding:15px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px black;
+    }
+    #kubus{
+        width:400px;
+            margin:auto;
+            height:auto;
+            background: linear-gradient(50deg, #da1571,rgb(44, 26, 11));
+            padding:15px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px black;
+    }
+    #segiempat{
+        width:400px;
+            margin:auto;
+            height:auto;
+            background: linear-gradient(50deg, #f11111,rgb(168, 226, 7));
+            padding:15px;
+            border-radius: 10px;
+            box-shadow: 1px 5px 10px black;
+    }
+    h4{
+        text-align: left ;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="balok">
+    <h4>Menghitung Luas & Volume Balok</h4>
+    <p>Panjang = <input type="text" id="panjang"></p>
+    <p>Lebar  = <input type="text" id="lebar"></p>
+    <p>Tinggi = <input type="text" id="tinggi"></p>
+    <input type="submit" id="jumlah" value="Jumlahkan" onclick="jumlahkanbalok()">
+    <p id="tVolume"></p>
+    <p id="tLuas"></p>
+        </div>
+
+        <div id="segitiga">
+    <h4>Menghitung Luas Segitiga</h4>
+    <p>Alas = <input type="text" id="alassegitiga"></p>
+    <p>Tinggi = <input type="text" id="tinggisegitiga"></p>
+    <input type="submit" id="jumlah" value="Jumlahkan" onclick="jumlahkansegitiga()">
+    <p id="luassegitiga"></p>
+    </div>
+
+        <div id="ppanjang">
+    <h4>Menghitung Luas Persegi Panjang</h4>
+    <p>Panjang = <input type="text" id="panjangpersegi"></p>
+    <p>Lebar = <input type="text" id="lebarpersegi"></p>
+    <input type="submit" id="jumlah" value="Jumlahkan" onclick="jumlahkanpersegi()">
+    <p id="luaspersegi"></p>
+        </div>
+
+        <div id="prisma">
+    <h4>Menghitung Luas & Volume Prisma Segitiga</h4>
+    <p>Tinggi Alas Segitiga = <input type="text" id="tinggialas"></p>
+    <p>Panjang Alas Prisma Segitiga = <input type="text" id="panjangprisma"></p>
+    <p>Tinggi Prisma = <input type="text" id="tinggiprisma"></p>
+    <input type="submit" id="jumlah" value="Jumlahkan" onclick="jumlahkanprisma()">
+    <p id="luasprismasegitiga"></p>
+    <p id="volumeprismasegitiga"></p>
+        </div>
+
+        <div id="kubus">
+    <h4>Menghitung Volume Kubus</h4>
+    <p>Sisi = <input type="text" id="sisikubus"></p>
+    <input type="submit" id="jumlah" value="Jumlahkan" onclick="jumlahkankubus()">
+    <p id="volumekubus"></p>
+        </div>
+
+        <div id="segiempat">
+    <h4>Menghitung Luas & Volume Limas SegiEmpat</h4>
+    <p>Sisi Limas = <input type="text" id="sisilimas"></p>
+    <p>Tinggi Limas = <input type="text" id="tinggilimas"></p>
+    <input type="submit" id="jumlah" value="Jumlahkan" onclick="jumlahkanlimas()">
+    <p id="luaslimas"></p>
+    <p id="volumelimas"></p>
+        </div>
+    <script type="text/javascript">
+        function jumlahkanbalok(){
+            var Bpanjang = document.getElementById('panjang').value;
+            var Blebar = document.getElementById('lebar').value;
+            var BTinggi = document.getElementById('tinggi').value;
+            var tvolume = (Bpanjang) * (Blebar) * (BTinggi);
+            var tluas = 2 * (((Bpanjang) * (Blebar)) + ((Bpanjang) * (BTinggi)) + ((Blebar) * (BTinggi)));
+            document.getElementById('tVolume').innerHTML = " Volumenya adalah " +  tvolume;
+            document.getElementById('tLuas').innerHTML = " Luasnya adalah " +  tluas;
+        }
+        
+        function jumlahkansegitiga(){
+            var Salas = document.getElementById('alassegitiga').value;
+            var STinggi = document.getElementById('tinggisegitiga').value;
+            var SLuas = ((Salas) * (STinggi)) * 0.5;
+            document.getElementById('luassegitiga').innerHTML = " Luasnya adalah " +  SLuas;
+        }
+        
+        function jumlahkanpersegi(){
+            var PPanjang = document.getElementById('panjangpersegi').value;
+            var PLebar = document.getElementById('lebarpersegi').value;
+            var PLuas = ((PPanjang) * (PLebar));
+            document.getElementById('luaspersegi').innerHTML = " Luasnya adalah " +  PLuas; 
+        }
+        
+        function jumlahkanprisma(){
+            var PSalas = document.getElementById('tinggialas').value;
+            var PSTinggi = document.getElementById('panjangprisma').value;
+            var PSLuas = ((PSalas) * (PSTinggi)) * 0.5;
+            var TinggiPrisma = document.getElementById('tinggiprisma').value;
+            var VolumePrisma = (PSLuas) * (TinggiPrisma);
+            document.getElementById('luasprismasegitiga').innerHTML = " Luasnya adalah " +  PSLuas;
+            document.getElementById('volumeprismasegitiga').innerHTML = " Volumenya adalah " +  VolumePrisma;
+        }
+        
+        function jumlahkankubus(){
+            var Ksisi = document.getElementById('sisikubus').value;
+            var KVolume = (Ksisi) * (Ksisi) * (Ksisi);
+            document.getElementById('volumekubus').innerHTML = " Volumenya adalah " +  KVolume;
+        }
+        
+        function jumlahkanlimas(){
+            var Lsisi = document.getElementById('sisilimas').value;
+            var Ltinggi = document.getElementById('tinggilimas').value;
+            var LLuas = (Lsisi) * (Lsisi);
+            var LVolume = 1/3 * (LLuas) * (Ltinggi);
+            document.getElementById('luaslimas').innerHTML = " Luasnya adalah " +  LLuas;
+            document.getElementById('volumelimas').innerHTML = " Volumenya adalah " +  LVolume;
+        }
+        
+    </script>
+</body>
+</html>
